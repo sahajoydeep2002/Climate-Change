@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/main.css" />
+  </head>
+  <body>
+    {% extends 'base.html'%} {% block content %}
+    <div class="">
+      <div>
+        <h1>About us</h1>
+        <div class="d-flex flex-lg-row abtus">
+          <div>
+            <p class="px-5 pt=s-5">
+              <b>Climate Pulse </b>is a eye catching climate awareness website
+              that edicates and inspire visitors to combat climate change. With
+              a visuallt stunning desing and easy navigation, the site offers
+              in-depth climate science, inspiring success stories, interactive,
+              inspiring success stories, interactive tools, and quizzess. It
+              encourages users to take action through practical steps and
+              community engagement for a greener future.
+            </p>
+          </div>
+          <div>
+            <img
+              src="/static/media/about-01.png"
+              alt=""
+              class="aboutimg mx-5"
+            />
+          </div>
+        </div>
+        <hr />
+        <div class="d-flex cntus">
+          <div class="contactus flex-fill ">
+            <h1>Contact us</h1>
+            <ul class="list-unstyled">
+              <li>Email : climatepulse@gmail.com</li>
+              <li>Location: XYZ,qwerty</li>
+              <li>Phone: 1234567890</li>
+            </ul>
+          </div>
+          <div class="query flex-fill">
+            <h1>Query</h1>
+            <form method="POST" action="{% url 'saveenquiry' %}" class="mt-3 ms-3">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="formGroupExampleInput"
+                  placeholder="Enter your Name"
+                  name="name"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <labelclass="form-label">Email</labelclass=>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="formGroupExampleInput2"
+                  placeholder="Enter your Email"
+                  name="email"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Query Description</label><br>
+                <textarea name="desc" id="" rows="10" placeholder="Description" required style="width: 100%;"></textarea>
+              </div>
+              <div>
+                <button type="submit" class="btn btn-info">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <hr />
+      </div>
+
+      <div id="carouselExampleIndicators" class="carousel slide mt-5">
+        <div class="carousel-indicators">
+          {% for n in cdata %}
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="{{forloop.counter0}}"
+            class="{% if forloop.counter0 == 0 %}active {% endif %}"
+            aria-current="true"
+            aria-label="Slide {{forloop.counter}}"
+          ></button>
+
+          {% endfor %}
+        </div>
+        <div class="carousel-inner">
+      
+          {% for n in cdata %}
+          <div
+            class="carousel-item {% if forloop.counter0 == 0 %}active {% endif %} slide "
+          >
+            <div
+              class="d-flex w-75  p-5 mx-auto text-bg-info rounded"
+              style="height: 300px;"
+            >
+            <div class="w-50 ps-5">
+
+              <img src="/media/{{n.c_image}}" class="w-50 rounded-circle ms-5" alt="..." />
+            </div>
+            <div class="w-50">
+              
+              <h1>{{n.c_name}}</h1>
+              <p>{{n.c_bio}}</p>
+            </div>
+            </div>
+            
+          </div>
+          {% endfor %}
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+        >
+          <span
+            class="carousel-control-prev-icon bg-info"
+            aria-hidden="true"
+          ></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+        >
+          <span
+            class="carousel-control-next-icon bg-info"
+            aria-hidden="true"
+          ></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    {% endblock %}
+  </body>
+</html>

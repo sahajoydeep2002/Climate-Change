@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+          {% extends 'base.html'%} {% block content %}
+        <h1>blogsearch</h1>
+        {% for n in svalue %}
+        <div class="bg-light my-3 p-2 border-info rounded">
+          <p>{{n.author_name}} &nbsp; &nbsp; {{n.date_posted}}</p><hr>
+          <h3>{{n.title}}</h3>
+          <p>{{n.content}}</p>
+        </div>
+        {% endfor %}
+          {% endblock %}
+</body>
+</html>

@@ -1,0 +1,55 @@
+.logo {
+  width: 150px;
+}
+.main-content {
+  padding-top: 100px;
+}
+.details {
+  padding-top: 100px;
+}
+.highlight {
+  background-color: aqua;
+  border-radius: 5px;
+}
+.aboutimg {
+  width: 40vw;
+}
+.mainc {
+  min-height: 67.4vh;
+}
+.querydesc {
+  height: 30vh;
+}
+.cimg {
+  width: 100vh;
+}
+.maint {
+  background: rgba(0, 0, 0, 0.4) url("/static/media/COVER1.jpg");
+  background-size: 100%;
+  min-height: 13rem;
+  color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: darken;
+}
+
+@media (max-width: 850px) {
+  .abtus {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+@media (max-width: 850px) {
+  .cntus {
+    flex-direction: column;
+  }
+}
+
+
+.blog-post-text {
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 3; /* number of lines to show */
+           line-clamp: 2; 
+   -webkit-box-orient: vertical;
+}

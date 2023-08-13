@@ -1,0 +1,10 @@
+.lsback{
+   background: rgba(0, 0, 0, 0.4) url("/static/media/back1.jpg");
+    background-blend-mode: darken;
+}
+.loginform{
+    background-color: black;
+}
+.swidth{
+    width: 30vw;
+}

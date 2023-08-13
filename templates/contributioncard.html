@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    {% extends 'aboutus.html' %} {% block card %}
+    <div class="carousel-item active text-bg-secondary">
+      <img src="/static/media/c1.jpg" class="d-block w-50 mx-auto" alt="..." />
+    </div>
+    <div class="carousel-item text-bg-secondary">
+      <img src="/static/media/c2.jpg" class="d-block w-50 mx-auto" alt="..." />
+    </div>
+    <div class="carousel-item text-bg-secondary">
+      <img src="/static/media/c3.jpg" class="d-block w-50 mx-auto" alt="..." />
+    </div>
+    {% endblock %}
+  </body>
+</html>

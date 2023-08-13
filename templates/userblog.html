@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'base.html'%} {% block content %}
+    <h1>
+        userblog
+    </h1>
+    {% for n in blogresult %}
+        <div class="bg-light my-3 p-2 border-info rounded">
+            <div class="d-flex justify-content-between">
+                <p>{{n.author_name}} &nbsp; &nbsp; {{n.date_posted}}</p>
+                <a href="{% url 'update_post' n.id %}" class="me-4">edit</a>
+            </div>
+            <hr>
+          <h3><a href="{% url 'blog-post' n.id %}">{{n.title}}</a></h3>
+          <p class="blog-post-text">{{n.content}}</p>
+        </div>
+        {% endfor %}
+    {% endblock %}
+</body>
+</html>

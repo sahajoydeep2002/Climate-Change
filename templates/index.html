@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    {% extends 'base.html'%} {% block content %}
+
+    <div>
+      <div class="maint">
+        <h1 class="ms-5 pt-3 text-info">Climate Pulse</h1>
+        <h3 class="w-50 ps-5 text-primary-emphasis">
+          Weather Forecast, Blog, Awareness and Many More...
+        </h3>
+      </div>
+      <div class="mt-3 px-auto bg-info bg-opacity-25 p-3">
+        <div class="d-inline-block w-100">
+          <form method="POST" class="mx-5">
+            {% csrf_token %}
+            <input
+              type="text"
+              name="city"
+              id=""
+              placeholder="Enter city"
+              class="w-75"
+            />
+            <button type="submit" class="ms-5 btn btn-info px-5">Enter</button>
+          </form>
+        </div>
+        <div class="d-flex flex-row pt-2">
+          <div class="pt-2">
+            <img
+              src="http://openweathermap.org/img/w/{{icon}}.png"
+              alt="image weather"
+            />
+          </div>
+          <div class="border-end p-3 border-2 border-success">
+            <h3 class="text-capitalize mb-3">{{desc}}</h3>
+            <h1 class="fs-1 my-auto">{{temp}} <sup><sup>o</sup>C</sup></sup></h1>
+          </div>
+          <div class="ps-5">
+            <div class="d-flex">
+              <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-geo-alt pt-2" viewBox="0 0 16 16">
+  <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+  <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+</svg>
+              <h4 class="me-2 text-capitalize">{{city}} ,</h4>
+              <h6 class="pt-2">{{country}}</h6>
+              
+            </div>
+            <p class="ms-4">{{time}}</p>
+            <div class="d-flex align-baseline">
+              <h4>Wind Speed :</h4>
+              <h4>&nbsp; {{wspeed}} m/s   </h4>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <h1 class="my-2">Recent Blogs</h1>
+
+
+      
+
+
+
+      <div class="blogs_posts_here ">
+        <div class="all_blogs w-75">
+        {% for n in c %}
+        {% if forloop.counter0 <= 2 %}
+        <div class="bg-secondary bg-opacity-25 my-3 p-2 border-info rounded">
+          <p></p>
+          <p>{{n.author_name}} &nbsp; &nbsp; {{n.date_posted}}</p><hr>
+          <h3><a href="{% url 'blog-post' n.id %}">{{n.title}}</a></h3>
+          <p class="blog-post-text">{{n.content}}</p>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+      </div>
+      </div>
+    </div>
+
+    {% endblock %}
+  </body>
+</html>

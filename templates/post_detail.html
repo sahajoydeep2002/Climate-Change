@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      {% extends 'base.html'%} {% block content %}
+    <div class="bg-light mb-4 p-2 border-info rounded">
+          <div class="d-flex justify-content-between pt-4">
+            <div class="d-flex">
+
+              <p class=""><h6>{{object.author_name}} </h6> &nbsp; &nbsp; {{object.date_posted}}</p>
+            </div>
+                <a href="{% url 'update_post' object.id %}" class="me-4">edit</a>
+            </div>
+            <hr>
+          <h3>{{object.title}}</h3>
+          <p class="text-break">{{object.content}}</p>
+        </div>
+        {% endblock %}
+</body>
+</html>

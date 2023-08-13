@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/static/css/main.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-info fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand ms-3" href="/"
+          ><img src="/static/media/ClimatePulse.png" alt="" class="logo"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNavDropdown"
+        >
+          <ul class="navbar-nav mx-5 pe-5">
+            {% url '/' as url %}
+            <li class="mx-3 {% if request.path == url %} highlight {% endif %}">
+              <a
+                class="nav-link active fw-bold"
+                aria-current="page"
+                href="{{url}}"
+                >Home</a
+              >
+            </li>
+            {% url 'blogpage' as url %}
+            <li class="mx-3 {% if request.path == url %} highlight {% endif %}">
+              <a class="nav-link active fw-bold" href="{{url}}">Blog</a>
+            </li>
+            {% url 'quizpage' as url %}
+            <li class="mx-3 {% if request.path == url %} highlight {% endif %}">
+              <a
+                class="nav-link active fw-bold"
+                aria-current="page"
+                href="{{url}}"
+                >Quiz</a
+              >
+            </li>
+            {% url 'aboutus' as url %}
+            <li class="mx-3 {% if request.path == url %} highlight {% endif %}">
+              <a class="nav-link active fw-bold" href="{{url}}">About-us</a>
+            </li>
+            <li class="dropdown mx-3">
+              {% if request.user.is_authenticated %}
+              <a
+                class="nav-link dropdown-toggle active fw-bold"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >{{request.user}}
+              </a>
+              {% else %}
+              <a
+                class="nav-link dropdown-toggle active fw-bold"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Profile
+              </a>
+              {% endif %}
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="{% url 'profile' %}"
+                    >View Profile</a
+                  >
+                </li>
+                <li>
+                  {% if request.user.is_authenticated %}
+                  <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
+                  {% else %}
+                  <a class="dropdown-item" href="{% url 'login'%}">Login</a>
+                  {% endif %}
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'userblog' %}"
+                    >Your Blog</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <form
+            class="d-flex me-3"
+            role="search"
+            action="{% url 'blogsearch' %}"
+            method="post"
+          >
+            {% csrf_token %}
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Blog Search"
+              aria-label="Search"
+              name="s_value"
+            />
+            <button class="btn btn-outline-primary" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </body>
+</html>
