@@ -4,13 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+      .card-img-top {
+        height: 400px;
+        width: 360px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .card{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .card-columns{
+        margin-right:80px;
+        padding-right:40px;
+      }
+    </style>
 </head>
 <body>
     <div class="container ">
         
-    <div class="card-columns" style="padding: 10px; margin: 20px;">
-        <div class="card"  style="width: 32rem; border:5px black solid">
-            <img class="card-img-top" src="http://kmit.in/emagazine/wp-content/uploads/2018/02/karnataka-results.jpg" alt="Card image cap">
+    <div class="card-columns" style="padding: 5px; margin: 100px 220px;">
+        <div class="card"  style="width: 55rem; border:5px gold solid">
+            <img class="card-img-top" src="http://kmit.in/emagazine/wp-content/uploads/2018/02/karnataka-results.jpg" alt="Card image cap" height:100px>
             <div class="card-body">
                 <h5 class="card-title">Score: {{score}}</h5>
  
