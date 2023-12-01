@@ -4,9 +4,9 @@
 
 
 
- To run this Project Django and python should be installed on the System
+ To run this Project Django and Python should be installed on the System
 
- #### Follow the below steps to run the Porject
+ #### Follow the below steps to run the project
 1. move to the root directory of the project (.../Climate-pulse)
 2. Run the below commands:
    * To Start the project (Server):   python manage.py runserver 
